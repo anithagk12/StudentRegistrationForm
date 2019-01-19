@@ -2,7 +2,7 @@
 # add metadata to mp3 file using eyed3 and flask in python
 # Here I add some details like artist,album,title and image to the mp3 file.
 
-# my code
+#flaskeye.py
 
 
 from flask import Flask, render_template, request
@@ -50,7 +50,7 @@ if __name__ == '__main__':
 
 
 
-# eye.html is below
+# eye.html
 
 <html>
    <body>
