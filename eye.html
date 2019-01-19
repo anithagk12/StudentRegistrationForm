@@ -1,14 +1,17 @@
 <html>
    <body>
-      <form action = "http://localhost:5000/uploader" method = "POST" enctype = "multipart/form-data">
+    <center>      
+    <table width="600">
+      <tr><form action = "http://localhost:5000/uploader" method = "POST" enctype = "multipart/form-data"></tr>
 
-         <input type = "file" name = "file" />
-         
-         <p>Artist <input type = "text" name = "artist" /></p>
-         <p>Album <input type = "text" name = "album" /></p>
-         <p>Title <input type = "text" name = "title" /></p>
-         <p>Front_cover<input type = "file" name = "image" />
-         <p><input type = "submit" value = "submit" /></p>
+         <tr><td>File upload </td><td><input type = "file" name = "file" /></td></tr>
+         <tr><td><p> Artist </td><td><input type = "text" name = "artist" /></p></td></tr>
+         <tr><td><p>Album </td><td><input type = "text" name = "album" /></p></td></tr>
+         <tr><td><p>Title </td><td><input type = "text" name = "title" /></p></td></tr>
+         <tr><td><p>Front_cover</td><td><input type = "file" name = "image" /></td></tr>
+         <tr><td> </td><td><p><input type = "submit" value = "submit" /></p></td></tr>
       </form>
+        </table>
+        </center>
    </body>
 </html>
