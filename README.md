@@ -53,33 +53,19 @@ if __name__ == '__main__':
 # eye.html
 
 <html>
-   
    <body>
-   
-   <center>      
-   
-   <table width="600">
-   
-   <tr><form action = "http://localhost:5000/uploader" method = "POST" enctype = "multipart/form-data"></tr>
+    <center>      
+    <table width="600">
+      <tr><form action = "http://localhost:5000/uploader" method = "POST" enctype = "multipart/form-data"></tr>
 
-<tr><td>File upload </td><td><input type = "file" name = "file" /></td></tr>
-
-<tr><td><p> Artist </td><td><input type = "text" name = "artist" /></p></td></tr>
-
-<tr><td><p>Album </td><td><input type = "text" name = "album" /></p></td></tr>
-
-<tr><td><p>Title </td><td><input type = "text" name = "title" /></p></td></tr>
-
-<tr><td><p>Front_cover</td><td><input type = "file" name = "image" /></td></tr>
-
-<tr><td> </td><td><p><input type = "submit" value = "submit" /></p></td></tr>
-
-</form>
-
-</table>
-
-</center>
-
-</body>
-
+         <tr><td>File upload </td><td><input type = "file" name = "file" /></td></tr>
+         <tr><td><p> Artist </td><td><input type = "text" name = "artist" /></p></td></tr>
+         <tr><td><p>Album </td><td><input type = "text" name = "album" /></p></td></tr>
+         <tr><td><p>Title </td><td><input type = "text" name = "title" /></p></td></tr>
+         <tr><td><p>Front_cover</td><td><input type = "file" name = "image" /></td></tr>
+         <tr><td> </td><td><p><input type = "submit" value = "submit" /></p></td></tr>
+      </form>
+        </table>
+        </center>
+   </body>
 </html>
