@@ -29,8 +29,12 @@ def upload_file():
     with youtube_dl.YoutubeDL(ydl_opts) as ydl:
         info = ydl.extract_info(url1, download=True)
         mp3FileName = ydl.prepare_filename(info).replace(info['ext'], 'mp3')
-    #return(mp3FileName)
-    audiofile=eyed3.load(mp3FileName)
+    print(mp3FileName)
+    newfile=mp3FileName.split(" ",1)[0]
+    identify=newfile + "mp3file"
+    newFileName=newfile + ".mp3"
+    os.rename(mp3FileName,newFileName)
+    audiofile=eyed3.load(newFileName)
     Title= request.form['title']
     if not (Title==""):
         Title=Title
@@ -51,7 +55,7 @@ def upload_file():
         Genre=Genre
     else:    
         Genre="Podcast"
-    Source_url = bytes(request.form['source_url'], 'utf-8')
+    Source_url = bytes(request.form['source_url'],'utf-8')
     if not (Source_url==""):
         Source_url=Source_url
     else:    
@@ -97,7 +101,12 @@ def upload_file():
     print ("before save")  
       
     audiofile.tag.save()
-    print ("after save")
+    print ("file upload to archive.org")
+    ia_upload = "ia upload " + identify + \
+" -m collection:opensource -m mediatype:audio -m sponsor:Kaniyam -m language:ta " + \
+newFileName
+    os.system(ia_upload)
+    print ("file uploaded")
     return "File updated"
 
 
