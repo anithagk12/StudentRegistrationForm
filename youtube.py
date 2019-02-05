@@ -120,7 +120,7 @@ newFileName
     print("Posting into WordPress")
 
 
-    client = Client('https://python.sport.blog/xmlrpc.php','anithagk12@gmail.com','anuvinayaga')
+    client = Client(blog url,username,password)
     post = WordPressPost()
     print("wordpress open")
 
