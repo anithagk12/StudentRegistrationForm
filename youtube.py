@@ -1,6 +1,12 @@
 from __future__ import unicode_literals
 from flask import Flask, render_template, request
 from werkzeug import secure_filename
+from wordpress_xmlrpc import WordPressPost
+from wordpress_xmlrpc import Client
+from wordpress_xmlrpc.methods import posts, media
+from wordpress_xmlrpc.methods.posts import NewPost
+from wordpress_xmlrpc.compat import xmlrpc_client
+from wordpress_xmlrpc.methods import taxonomies
 import eyed3
 import os
 import youtube_dl
@@ -101,12 +107,35 @@ def upload_file():
     print ("before save")  
       
     audiofile.tag.save()
-    print ("file upload to archive.org")
+    print ("after save")
     ia_upload = "ia upload " + identify + \
 " -m collection:opensource -m mediatype:audio -m sponsor:Kaniyam -m language:ta " + \
 newFileName
     os.system(ia_upload)
+
+    audioURL = "https://archive.org/download/%s/%s" % (identify, newFileName)
     print ("file uploaded")
+
+
+    print("Posting into WordPress")
+
+
+    client = Client('https://python.sport.blog/xmlrpc.php','anithagk12@gmail.com','anuvinayaga')
+    post = WordPressPost()
+    print("wordpress open")
+
+    content = "%s \n %s"% (audioURL, Comments)
+    post.title = Title
+    post.content = content
+    post.post_status = 'publish'
+    post.comment_status = 'open'
+    post.terms_names = {'category': ['Podcast']}
+    post.slug = newfile
+
+
+    post.id = client.call(posts.NewPost(post))
+
+    print("Posted into WordPress")
     return "File updated"
 
 
