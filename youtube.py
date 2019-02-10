@@ -102,9 +102,7 @@ def upload_file():
     audiofile.tag.comments.set(u""+Comments, description=u"")
     audiofile.tag.language = u""+Language
     audiofile.tag.art_name = u""+Art_name
-    audiofile.tag.publisher_url = b""+Publisher_url
-    
-    print ("before save")  
+    audiofile.tag.publisher_url = b""+Publisher_url  
       
     audiofile.tag.save()
     print ("after save")
@@ -122,7 +120,6 @@ newFileName
 
     client = Client(blog url,username,password)
     post = WordPressPost()
-    print("wordpress open")
 
     content = "%s \n %s"% (audioURL, Comments)
     post.title = Title
