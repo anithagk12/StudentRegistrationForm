@@ -1,0 +1,30 @@
+<html>
+    <head>
+        <title>test</title>
+    </head>
+    <body><center>
+<table border=2 height="100" width="500">
+<tr><td>First_name</td><td>Last_name</td><td>Date_Of_Birth</td><td>Email</td><td>Mobile</td><td>Gender</td><td>Address</td><td>City</td><td>X_Percentage</td><td>XII_Percentage</td><td>Graduation</td><td>Course</td><td>Mcourse</td></tr>
+       {% for col in datas %}
+            <tr>
+            <td>{{col[0]}}</td>
+            <td>{{col[1]}}</td>
+            <td>{{col[2]}}</td>
+            <td>{{col[3]}}</td>
+            <td>{{col[4]}}</td>
+            <td>{{col[5]}}</td>
+            <td>{{col[6]}}</td>
+            <td>{{col[7]}}</td>
+            <td>{{col[8]}}</td>
+            <td>{{col[9]}}</td>
+            <td>{{col[10]}}</td>
+            <td>{{col[11]}}</td>
+            <td>{{col[12]}}</td>
+            
+            </tr>
+        {% endfor %}    
+</table>
+<h2><a href = "/"> Home page </a> </h2>
+
+    </body>
+</html>
