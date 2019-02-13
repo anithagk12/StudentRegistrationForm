@@ -1,7 +1,16 @@
 from flask import Flask, render_template, redirect, url_for, flash,request
+from flask_mail import Mail, Message
 import sqlite3 as sql
 app=Flask(__name__)
 app.secret_key='random string'
+mail=Mail(app)
+app.config['MAIL_SERVER']='smtp.gmail.com'
+app.config['MAIL_PORT'] = 465
+app.config['MAIL_USERNAME'] = 'anithagk12@gmail.com'
+app.config['MAIL_PASSWORD'] = 'anuvinayaga'
+app.config['MAIL_USE_TLS'] = False
+app.config['MAIL_USE_SSL'] = True
+mail = Mail(app)
 
 @app.route('/')
 def home():
@@ -41,14 +50,17 @@ def addrec():
          usernm = request.form['nm']
          firstname=request.form['ftnm']
          lastname=request.form['ltnm']
-         mobilename=request.form['mobile']
+         email=request.form['email']
          pw = request.form['pw']
          gender=request.form['gender']
          con=sql.connect("user.db")
          cur = con.cursor()
-         cur.execute("INSERT INTO userlogin (usernm,firstname,lastname,mobile,pw,gender) VALUES (?,?,?,?,?,?)",(usernm,firstname,lastname,mobilename,pw,gender) )
+         cur.execute("INSERT INTO userlogin (usernm,firstname,lastname,email,pw,gender) VALUES (?,?,?,?,?,?)",(usernm,firstname,lastname,email,pw,gender) )
          con.commit()
          con.close()
+         msg = Message('Account Created', sender = 'anithagk12@gmail.com', recipients = [email])
+         msg.body = "You account has been created successfully "
+         mail.send(msg)
          return render_template('signin.html')
    
 
@@ -87,4 +99,3 @@ def listone():
 
 if __name__ == '__main__':
    app.run(debug = True)
-
