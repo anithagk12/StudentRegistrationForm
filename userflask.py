@@ -58,7 +58,7 @@ def addrec():
          cur.execute("INSERT INTO userlogin (usernm,firstname,lastname,email,pw,gender) VALUES (?,?,?,?,?,?)",(usernm,firstname,lastname,email,pw,gender) )
          con.commit()
          con.close()
-         msg = Message('Account Created', sender = 'anithagk12@gmail.com', recipients = [email])
+         msg = Message('Hello', sender = 'anithagk12@gmail.com', recipients = [email])
          msg.body = "You account has been created successfully "
          mail.send(msg)
          return render_template('signin.html')
@@ -85,6 +85,9 @@ def addregi():
          cur.execute("INSERT INTO userregist (firstname,lastname,dateofbirth,email,mobile,gender,address,city,X_percentage,XII_percentage,graduation_percentage,course,mcourse) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)",(firstname,lastname,dateofbirth,email,mobile,gender,address,city,X_percentage,XII_percentage,graduation_percentage,course,mcourse) )
          con.commit()
          con.close()
+         msg = Message('', sender = 'anithagk12@gmail.com', recipients = [email])
+         msg.body = "Thanks for the Submission "
+         mail.send(msg)
          return render_template('record.html')
 
 @app.route('/listone',methods = ['POST', 'GET'])
