@@ -1,2 +1,2 @@
-# Simple Registation form using python flask, sqlite3 and html
+# Simple Registration form using python flask, sqlite3 and html
 
